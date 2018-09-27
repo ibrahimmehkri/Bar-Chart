@@ -10,7 +10,9 @@
 
 @interface BarChart : UIView
 
-@property NSArray *data; 
+@property NSArray *data;
+
+-(instancetype)initWithFrame:(CGRect)frame data: (NSArray*)data; 
 
 @end
 

@@ -20,18 +20,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSArray *data = @[@{@"name": @"january",
+        
+        @"value": @100},
+      
+      @{@"name": @"february",
+        
+        @"value": @80},
+      
+      @{@"name": @"mars",
+        
+        @"value": @130}];
+    
+    
+    
     CGSize size = self.view.bounds.size;
     CGPoint origin = self.view.bounds.origin;
     
     CGRect frame = CGRectMake(origin.x, origin.y + 200, size.width, size.height);
     
-    BarChart *subView = [[BarChart alloc]initWithFrame:frame];
+    BarChart *chart = [[BarChart alloc]initWithFrame:frame data:data];
     
-    subView.data = @[@15, @45, @20, @250, @150, @90, @35, @300, @400, @325]; 
+    chart.backgroundColor = [UIColor clearColor]; 
     
-    subView.backgroundColor = [UIColor clearColor]; 
-    
-    [self.view addSubview:subView];
+    [self.view addSubview:chart];
 }
 
 

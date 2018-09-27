@@ -10,13 +10,24 @@
 
 @implementation BarChart
 
+-(instancetype)initWithFrame:(CGRect)frame data:(NSArray *)data{
+    self = [super initWithFrame:frame];
+    
+    if(self){
+        NSMutableArray *values = [@[]mutableCopy];
+        for (int i = 0; i < data.count; i++) {
+            [values addObject:data[i][@"value"]];
+        }
+        self.data = values; 
+    }
+    return self; 
+}
+
 - (void)drawRect:(CGRect)rect{
     
         float x = 20;
     
     for (int i = 0; i < self.data.count; i++) {
-        
-        NSLog(@"%@ %@", self.data[i], [self.data[i] class]);
         
         float y = (400 - [self.data[i] intValue]);
         float height = [self.data[i] intValue];
