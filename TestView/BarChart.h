@@ -11,6 +11,7 @@
 @interface BarChart : UIView
 
 @property NSArray *data;
+@property int maxHeight; 
 
 -(instancetype)initWithFrame:(CGRect)frame data: (NSArray*)data; 
 

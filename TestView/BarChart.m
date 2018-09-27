@@ -18,20 +18,23 @@
         for (int i = 0; i < data.count; i++) {
             [values addObject:data[i][@"value"]];
         }
-        self.data = values; 
+        NSNumber *maxNumber = [values valueForKeyPath:@"@max.self"];
+        self.maxHeight = maxNumber.intValue;
+        self.data = values;
+        
     }
     return self; 
 }
 
 - (void)drawRect:(CGRect)rect{
     
-        float x = 20;
+        float x = 30;
     
     for (int i = 0; i < self.data.count; i++) {
         
-        float y = (400 - [self.data[i] intValue]);
+        float y = (self.maxHeight - [self.data[i] intValue]);
         float height = [self.data[i] intValue];
-        float width = 20;
+        float width = (self.bounds.size.width/self.data.count)-30;
         
         CGRect barFrame = CGRectMake(x, y, width, height);
         
@@ -41,7 +44,7 @@
         
         [path fill];
         
-        x += 30;
+        x += width+15;
         
     }
     

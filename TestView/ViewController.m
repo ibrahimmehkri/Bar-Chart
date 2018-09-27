@@ -30,14 +30,14 @@
       
       @{@"name": @"mars",
         
-        @"value": @130}];
+        @"value": @430}];
     
     
     
     CGSize size = self.view.bounds.size;
     CGPoint origin = self.view.bounds.origin;
     
-    CGRect frame = CGRectMake(origin.x, origin.y + 200, size.width, size.height);
+    CGRect frame = CGRectMake(origin.x, origin.y + 100, size.width, size.height);
     
     BarChart *chart = [[BarChart alloc]initWithFrame:frame data:data];
     
